@@ -21,6 +21,8 @@ import {
   HeartPulse,
   Target,
   Shield,
+  Calendar,
+  CheckCircle2,
 } from "lucide-react";
 
 const page = () => {
@@ -92,55 +94,115 @@ const page = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
+      {/* Hero Section - Redesigned to match other pages */}
       <section
         id="home"
-        className="relative bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-20 md:py-32 overflow-hidden"
+        className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white py-20 md:py-32 overflow-hidden"
       >
-        <div className="absolute inset-0 bg-grid-slate-200 opacity-20"></div>
+        {/* Animated Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          ></div>
+        </div>
+
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
             <div>
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+                <Stethoscope size={20} className="text-blue-300" />
+                <span className="text-sm font-medium">
+                  Premier Orthopedic Care in Lucknow
+                </span>
+              </div>
+
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
                 Expert Orthopedic Care in Lucknow
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
+
+              <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
                 Specialized in joint replacement, arthroscopy, and trauma
                 surgery with over 11 years of experience
               </p>
+
+              {/* Quick Stats */}
+              <div className="grid grid-cols-3 gap-4 mb-8">
+                <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+                  <p className="text-2xl md:text-3xl font-bold mb-1">11+</p>
+                  <p className="text-xs text-blue-200">Years Experience</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+                  <p className="text-2xl md:text-3xl font-bold mb-1">5000+</p>
+                  <p className="text-xs text-blue-200">Happy Patients</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+                  <p className="text-2xl md:text-3xl font-bold mb-1">98%</p>
+                  <p className="text-xs text-blue-200">Success Rate</p>
+                </div>
+              </div>
+
+              {/* CTA Buttons */}
               <div className="flex flex-wrap gap-4">
                 <a
                   href="#contact"
-                  className="bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transition-colors font-medium text-lg shadow-lg hover:shadow-xl"
+                  className="group bg-white text-blue-900 px-8 py-4 rounded-full font-bold hover:bg-blue-50 transition-all inline-flex items-center gap-2 shadow-xl hover:shadow-2xl"
                 >
+                  <Calendar size={20} />
                   Book Appointment
+                  <ChevronRight
+                    size={20}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
                 </a>
                 <a
                   href="tel:08303701980"
-                  className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-full hover:bg-blue-50 transition-colors font-medium text-lg"
+                  className="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all inline-flex items-center gap-2"
                 >
+                  <Phone size={20} />
                   Call Now
                 </a>
               </div>
             </div>
-            <div className="relative">
+
+            {/* Right Content - Image */}
+            <div className="relative h-fit">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-3xl blur-2xl opacity-20"></div>
-              <img
-                src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?w=800&q=80"
-                alt="Medical Professional"
-                className="relative rounded-3xl shadow-2xl w-full h-auto"
-              />
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img
+                  src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?w=800&q=80"
+                  alt="Dr. Avik Roy - Orthopedic Surgeon"
+                  className="w-full h-[600px] object-cover object-top"
+                />
+                {/* Overlay Badge */}
+                <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-xl">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-3 rounded-xl">
+                      <Award className="text-white" size={28} />
+                    </div>
+                    <div>
+                      <p className="font-bold text-gray-900">
+                        MCh Joint Replacement
+                      </p>
+                      <p className="text-sm text-gray-600">AIIMS Raipur 2023</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white relative -mt-16 z-10">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-blue-100">
-              <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all border border-gray-100 group hover:scale-105">
+              <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
                 <Stethoscope className="text-white" size={32} />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">
@@ -151,8 +213,8 @@ const page = () => {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-blue-100">
-              <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all border border-gray-100 group hover:scale-105">
+              <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
                 <Clock className="text-white" size={32} />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">
@@ -163,8 +225,8 @@ const page = () => {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-blue-100">
-              <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all border border-gray-100 group hover:scale-105">
+              <div className="bg-gradient-to-br from-purple-500 to-purple-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
                 <Users className="text-white" size={32} />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">
@@ -186,15 +248,19 @@ const page = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <span className="text-blue-600 font-semibold uppercase tracking-wider">
-                About Us
-              </span>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
+              <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6">
+                <Heart size={20} />
+                <span className="font-semibold">About Us</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 Dr. Avik Roy
               </h2>
+              <p className="text-xl text-gray-600">
+                Distinguished Orthopedic Surgeon • 11+ Years Experience
+              </p>
             </div>
 
-            <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12">
+            <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100">
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 <strong>Dr. Avik Roy</strong> is a distinguished orthopedic
                 surgeon based in Lucknow, Uttar Pradesh, with over{" "}
@@ -205,24 +271,24 @@ const page = () => {
               </p>
 
               <div className="grid md:grid-cols-3 gap-6 mb-8">
-                <div className="flex flex-col items-center text-center p-6 bg-blue-50 rounded-xl">
-                  <div className="bg-blue-600 p-4 rounded-full mb-4">
+                <div className="flex flex-col items-center text-center p-6 bg-blue-50 rounded-xl hover:shadow-lg transition-all">
+                  <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-4 rounded-full mb-4">
                     <Award className="text-white" size={28} />
                   </div>
                   <p className="text-gray-900 font-semibold">
                     Expert Orthopedic Surgeon
                   </p>
                 </div>
-                <div className="flex flex-col items-center text-center p-6 bg-blue-50 rounded-xl">
-                  <div className="bg-blue-600 p-4 rounded-full mb-4">
+                <div className="flex flex-col items-center text-center p-6 bg-blue-50 rounded-xl hover:shadow-lg transition-all">
+                  <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-4 rounded-full mb-4">
                     <Activity className="text-white" size={28} />
                   </div>
                   <p className="text-gray-900 font-semibold">
                     Advanced Techniques
                   </p>
                 </div>
-                <div className="flex flex-col items-center text-center p-6 bg-blue-50 rounded-xl">
-                  <div className="bg-blue-600 p-4 rounded-full mb-4">
+                <div className="flex flex-col items-center text-center p-6 bg-blue-50 rounded-xl hover:shadow-lg transition-all">
+                  <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-4 rounded-full mb-4">
                     <Heart className="text-white" size={28} />
                   </div>
                   <p className="text-gray-900 font-semibold">
@@ -233,10 +299,10 @@ const page = () => {
 
               <div className="text-center">
                 <a
-                  href="#contact"
-                  className="inline-block bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transition-colors font-medium shadow-lg"
+                  href="/about"
+                  className="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-full hover:shadow-xl transition-all font-medium shadow-lg"
                 >
-                  Read More
+                  Read More About Dr. Roy
                 </a>
               </div>
             </div>
@@ -248,13 +314,14 @@ const page = () => {
       <section id="treatment" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold uppercase tracking-wider">
-              Treatment
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6">
+              <Activity size={20} />
+              <span className="font-semibold">Treatment</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               We Provide The Best Orthopedic Treatment
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We provide the best orthopedic treatment, specializing in joint
               replacement, sports injuries, and advanced minimally invasive
               procedures for optimal recovery.
@@ -290,7 +357,7 @@ const page = () => {
           <div className="text-center mt-12">
             <a
               href="#contact"
-              className="inline-block bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transition-colors font-medium text-lg shadow-lg"
+              className="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-full hover:shadow-xl transition-all font-medium text-lg shadow-lg"
             >
               Contact Now
             </a>
@@ -302,31 +369,36 @@ const page = () => {
       <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="text-blue-200 font-semibold uppercase tracking-wider">
-              Orthopedic
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+              <Award size={20} className="text-blue-200" />
+              <span className="font-semibold">Orthopedic Excellence</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Excellence in Orthopedic Care and Recovery
             </h2>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+              Comprehensive orthopedic services backed by years of expertise and
+              advanced medical technology
+            </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {[
-              "Experienced Team",
-              "Advanced Technology",
-              "Personalized Treatment",
-              "Convenient & Accessible",
-              "Expertise & Experience",
-              "Community Involvement",
+              { icon: Users, text: "Experienced Team" },
+              { icon: Activity, text: "Advanced Technology" },
+              { icon: Heart, text: "Personalized Treatment" },
+              { icon: Clock, text: "Convenient & Accessible" },
+              { icon: Award, text: "Expertise & Experience" },
+              { icon: Shield, text: "Community Involvement" },
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-sm p-6 rounded-xl text-center hover:bg-white/20 transition-colors"
+                className="bg-white/10 backdrop-blur-sm p-6 rounded-xl text-center hover:bg-white/20 transition-all hover:scale-105"
               >
                 <div className="bg-white/20 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Award size={24} />
+                  <item.icon size={24} />
                 </div>
-                <p className="font-medium">{item}</p>
+                <p className="font-medium text-sm">{item.text}</p>
               </div>
             ))}
           </div>
@@ -337,15 +409,16 @@ const page = () => {
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12">
+            <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100">
               <div className="text-center mb-8">
-                <span className="text-blue-600 font-semibold uppercase tracking-wider">
-                  Quality Treatment
-                </span>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
+                <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6">
+                  <CheckCircle2 size={20} />
+                  <span className="font-semibold">Quality Treatment</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   We Proudly Give Quality Treatment
                 </h2>
-                <p className="text-lg text-gray-600 mb-8">
+                <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                   We understand that orthopedic injuries and acute joint or
                   muscle pain can happen unexpectedly. Our emergency orthopedic
                   services are designed to provide prompt and effective care to
@@ -354,36 +427,27 @@ const page = () => {
               </div>
 
               <div className="grid md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-blue-50 p-6 rounded-xl text-center">
-                  <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <ChevronRight className="text-white" size={24} />
+                {[
+                  { icon: Bone, text: "Joint Replacement Surgery" },
+                  { icon: HeartPulse, text: "Hip Replacement Surgery" },
+                  { icon: Target, text: "Knee Replacement Surgery" },
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl text-center hover:shadow-lg transition-all"
+                  >
+                    <div className="bg-gradient-to-br from-blue-600 to-indigo-600 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <item.icon className="text-white" size={28} />
+                    </div>
+                    <p className="text-gray-900 font-semibold">{item.text}</p>
                   </div>
-                  <p className="text-gray-900 font-semibold">
-                    Joint Replacement Surgery
-                  </p>
-                </div>
-                <div className="bg-blue-50 p-6 rounded-xl text-center">
-                  <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <ChevronRight className="text-white" size={24} />
-                  </div>
-                  <p className="text-gray-900 font-semibold">
-                    Hip Replacement Surgery
-                  </p>
-                </div>
-                <div className="bg-blue-50 p-6 rounded-xl text-center">
-                  <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <ChevronRight className="text-white" size={24} />
-                  </div>
-                  <p className="text-gray-900 font-semibold">
-                    Knee Replacement Surgery
-                  </p>
-                </div>
+                ))}
               </div>
 
               <div className="text-center">
                 <a
                   href="#contact"
-                  className="inline-block bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transition-colors font-medium shadow-lg"
+                  className="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-full hover:shadow-xl transition-all font-medium shadow-lg"
                 >
                   Contact Us
                 </a>
@@ -393,17 +457,18 @@ const page = () => {
         </div>
       </section>
 
-      {/* Cases Section - Simplified */}
+      {/* Cases Section */}
       <section id="cases" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <span className="text-blue-600 font-semibold uppercase tracking-wider">
-              Cases
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6">
+              <Award size={20} />
+              <span className="font-semibold">Cases</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Orthopedic Cases
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Successful treatment outcomes across various orthopedic conditions
               with personalized care and advanced surgical techniques.
             </p>
@@ -418,9 +483,9 @@ const page = () => {
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition-all border border-blue-100"
+                className="bg-white p-8 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all border border-gray-100 hover:scale-105"
               >
-                <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-gradient-to-br from-blue-600 to-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <item.icon className="text-white" size={28} />
                 </div>
                 <h3 className="text-3xl font-bold text-blue-600 mb-2">
@@ -440,14 +505,15 @@ const page = () => {
       >
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold uppercase tracking-wider">
-              Client Testimonials
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6">
+              <Star size={20} />
+              <span className="font-semibold">Client Testimonials</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Our Clients Reviews
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              At orthopedic, we pride ourselves on providing exceptional
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              At AASRA Clinic, we pride ourselves on providing exceptional
               orthopedic services that deliver real results. But don't just take
               our word for it.
             </p>
@@ -457,7 +523,7 @@ const page = () => {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-100"
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-100 hover:scale-[1.02]"
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
@@ -471,12 +537,12 @@ const page = () => {
                 <p className="text-gray-600 mb-6 italic leading-relaxed">
                   "{testimonial.text}"
                 </p>
-                <div className="flex items-center gap-4">
-                  <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center">
-                    <Users className="text-blue-600" size={24} />
+                <div className="flex items-center gap-4 pt-4 border-t border-gray-200">
+                  <div className="bg-gradient-to-br from-blue-500 to-indigo-600 w-12 h-12 rounded-full flex items-center justify-center">
+                    <Users className="text-white" size={24} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900">
+                    <h4 className="font-bold text-gray-900 text-lg">
                       {testimonial.name}
                     </h4>
                     <p className="text-sm text-gray-500">Patient</p>
@@ -484,6 +550,15 @@ const page = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <a
+              href="/testimonials"
+              className="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-full hover:shadow-xl transition-all font-medium text-lg shadow-lg"
+            >
+              View All Testimonials
+            </a>
           </div>
         </div>
       </section>
