@@ -161,15 +161,6 @@ const Footer = () => {
               <Heart className="w-4 h-4 text-blue-500 flex-shrink-0" />
               <span className="text-sm text-center sm:text-left">
                 Copyright © {currentYear} Dr. Avik Roy. All Rights Reserved.
-                Developed by{" "}
-                <a
-                  href="https://trianglemind.in/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-700 font-medium"
-                >
-                  Triangle Mind
-                </a>
               </span>
             </div>
           </div>
