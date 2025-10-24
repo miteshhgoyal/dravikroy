@@ -19,6 +19,8 @@ import {
   HeartPulse,
   Scissors,
 } from "lucide-react";
+import Image from "next/image";
+import doctorImage from "../../assets/image.jpg";
 
 const AboutPage = () => {
   const expertise = [
@@ -202,10 +204,13 @@ const AboutPage = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-3xl blur-2xl opacity-20"></div>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=80"
+                <Image
+                  src={doctorImage}
                   alt="Dr. Avik Roy - Orthopedic Surgeon"
                   className="w-full h-auto"
+                  width={600}
+                  height={800}
+                  priority
                 />
                 <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-xl">
                   <div className="flex items-center gap-4">
@@ -214,7 +219,7 @@ const AboutPage = () => {
                     </div>
                     <div>
                       <p className="font-bold text-gray-900">
-                        MCh Award Recipient
+                        MCh Degree Recipient
                       </p>
                       <p className="text-sm text-gray-600">AIIMS Raipur 2023</p>
                     </div>
@@ -275,7 +280,7 @@ const AboutPage = () => {
                 <p className="text-gray-700 leading-relaxed">
                   Active member of the Indian Orthopaedic Association and Uttar
                   Pradesh Orthopaedic Association. Recipient of the prestigious
-                  MCh Joint Replacement and Reconstruction award from AIIMS
+                  MCh Joint Replacement and Reconstruction degree from AIIMS
                   Raipur in 2023.
                 </p>
               </div>

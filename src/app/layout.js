@@ -262,7 +262,7 @@ export default function RootLayout({ children }) {
                                     "name": "MCh Joint Replacement"
                                 }
                             ],
-                            "award": "MCh Joint Replacement and Reconstruction Award 2023",
+                            "award": "MCh Joint Replacement and Reconstruction Degree 2023",
                             "memberOf": [
                                 {
                                     "@type": "Organization",

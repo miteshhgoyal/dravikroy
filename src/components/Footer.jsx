@@ -110,19 +110,33 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="md:col-span-1">
-            <h4 className="text-lg font-bold text-gray-900 mb-6 flex items-center">
+            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
               <Phone className="w-5 h-5 mr-2 text-blue-600" />
               Contact Us
             </h4>
 
-            <div className="space-y-4">
-              <a
+            <div className="space-y-0">
+              {/* <a
                 href={`tel:${contactInfo.phone}`}
                 className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors"
               >
                 <Phone className="w-4 h-4 flex-shrink-0" />
                 <span className="text-sm font-medium">{contactInfo.phone}</span>
-              </a>
+              </a> */}
+              {/* Emergency Contact Box */}
+              <div className="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-4">
+                <h5 className="font-semibold text-blue-800 text-sm mb-2 flex items-center gap-2">
+                  <Phone className="w-4 h-4" />
+                  Emergency Care
+                </h5>
+                <a
+                  href={`tel:${contactInfo.phone}`}
+                  className="text-blue-700 font-bold text-lg hover:underline"
+                >
+                  {contactInfo.phone}
+                </a>
+                <p className="text-xs text-blue-600 mt-1">Available 24/7</p>
+              </div>
 
               <a
                 href={contactInfo.mapLink}
@@ -133,21 +147,6 @@ const Footer = () => {
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
                 <span className="text-sm">{contactInfo.address}</span>
               </a>
-            </div>
-
-            {/* Emergency Contact Box */}
-            <div className="bg-blue-50 border border-blue-100 rounded-lg p-4 mt-6">
-              <h5 className="font-semibold text-blue-800 text-sm mb-2 flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                Emergency Care
-              </h5>
-              <a
-                href={`tel:${contactInfo.phone}`}
-                className="text-blue-700 font-bold text-lg hover:underline"
-              >
-                {contactInfo.phone}
-              </a>
-              <p className="text-xs text-blue-600 mt-1">Available 24/7</p>
             </div>
           </div>
         </div>
